@@ -121,6 +121,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.17.1)
     polyglot (0.3.3)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -220,6 +221,7 @@ DEPENDENCIES
   koala
   less-rails
   paperclip (~> 3.0)
+  pg
   rack-livereload
   rails (= 4.0.0)
   rb-fsevent

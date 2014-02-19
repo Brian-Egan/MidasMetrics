@@ -39,6 +39,10 @@ group :development do
 	gem 'rb-fsevent', :require => false
 end
 
+group :production do
+	gem 'pg'
+end
+
 gem 'haml-rails'
 gem 'koala'
 gem 'awesome_print'
