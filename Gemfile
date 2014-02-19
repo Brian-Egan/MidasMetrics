@@ -37,7 +37,6 @@ group :development do
 	gem 'rack-livereload', :require => false
 	gem 'rb-fsevent', :require => false
 	gem 'sqlite3'
-
 end
 
 group :production do
@@ -60,10 +59,10 @@ gem 'will_paginate-bootstrap'
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+# # gem 'unicorn'
 
-# Use Capistrano for deployment
-gem 'capistrano', group: :development
+# # Use Capistrano for deployment
+# gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
