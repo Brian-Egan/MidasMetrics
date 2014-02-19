@@ -32,8 +32,8 @@
           .container.nav-collapse
             %ul.nav
               - Network.all.each do |n|
-              %li 
-                = link_to "#{n.name}", network_path(n.id)
+                %li 
+                  = link_to "#{n.name}", network_path(n.id)
 
     .container-fluid
 
