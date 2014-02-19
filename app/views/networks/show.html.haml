@@ -1,0 +1,67 @@
+- model_class = Network
+.page-header
+  %h1 #{@network.name} Facebook Posts
+
+.container
+  %p.small <span class="strong">Note:</span> Due to lack of Page admin rights, engagement rates are calculated using an estimate for impressions. Estimate is that 5% of a page's fans were exposed to each post. For #{@network.name}, that is #{@imp.round(0)} impressions per post. 
+  %br
+
+
+
+
+
+.container
+  .postsSearch.panel-body
+    = form_tag(network_path(@network), method: "get", class: "form-inline", role: "form") do
+      .form-group.row
+        = label_tag(:query, "Search by keyword:", for: "postSearchKeyword", class: "sr-only") 
+        = text_field_tag 'query', nil, placeholder: 'Enter keyword', class: "form-control", id: "postSearchKeyword"
+       
+        = submit_tag("Search", class: "btn btn-default", params: :query)
+
+
+.container
+  - if params[:query] && params[:query] != ""
+    %p #{@posts.count} Posts containing keyword <strong>"#{params[:query]}"</strong>
+  - if @avg_likes > 0
+    %table.table.table-hover.table-bordered.table-responsive.metrics-table
+      %tr
+        %th Posts
+        %th Avg. Likes
+        %th Avg. Comments
+        %th Avg. Shares
+        %th Avg Engagement
+      %tr
+        %td #{@posts.count}
+        %td #{@avg_likes.round(2)}
+        %td #{@avg_comments.round(2)}
+        %td #{@avg_shares.round(2)}
+        %td #{@avg_engagement.round(4)}
+  .col-xs-12.col-md-6.pull-right
+    = will_paginate @posts
+  %table.table.table-hover.table-bordered.table-responsive.posts-table
+    %tr
+      %th 
+        = link_to "Date", network_path(1, :params => {:query => "#{params[:query]}", :filter =>"date", :order => "#{@order}"})
+      %th Time
+      %th
+        = link_to "Type", network_path(1, :params => {:query => "#{params[:query]}", :filter =>"kind", :order => "#{@order}"})
+      %th Copy
+      %th
+        = link_to "Likes", network_path(1, :params => {:query => "#{params[:query]}", :filter =>"likes", :order => "#{@order}"})
+      %th
+        = link_to "Comments", network_path(1, :params => {:query => "#{params[:query]}", :filter =>"comments", :order => "#{@order}"})
+      %th
+        = link_to "Shares", network_path(1, :params => {:query => "#{params[:query]}", :filter =>"shares", :order => "#{@order}"})
+      %th 
+        = link_to "Engagement Rate", network_path(1, :params => {:query => "#{params[:query]}", :filter =>"engagement", :order => "#{@order}"})
+      %th Link
+    - @posts.each do |p|
+      = render partial: "shared/post_table", :locals => {p: p}
+
+
+
+-# .container
+-#   %p.small <strong>Note:</strong> Due to Facebook API limitation and page ownership permissions, post data displayed below is not updated in real-time. To import the most recent Facebook posts for #{@network.name}, click below.
+-#   %button.btn.btn-danger Update
+-#      

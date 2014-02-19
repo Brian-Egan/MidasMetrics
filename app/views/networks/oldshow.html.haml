@@ -1,0 +1,26 @@
+%h2 Showing all posts for #{@network.name}
+
+%table
+	%tr
+		%th Date
+		%th Time
+		%th Type
+		%th Copy
+		%th Likes
+		%th Comments
+		%th Shares
+		%th Engagement Rate
+		%th Link
+	- @posts.each do |p|
+		%tr
+			%td #{p.date.strftime("%-m/%e")}
+			%td #{p.date.strftime("%l:%M%p")}
+			%td #{p.kind}
+			%td #{p.copy}
+			%td #{p.likes}
+			%td #{p.comments}
+			%td #{p.shares}
+			- @ng = (p.engagement * 100)
+			%td #{@ng}%
+			%td
+				%a{href: p.link} Link

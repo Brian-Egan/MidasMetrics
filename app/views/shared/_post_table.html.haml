@@ -1,0 +1,14 @@
+%tr
+  %td #{p.date.strftime("%-m/%e/%y")}
+  %td #{p.date.strftime("%l:%M%p")}
+  %td #{p.kind}
+  %td #{p.copy}
+  %td #{p.likes}
+  %td #{p.comments}
+  %td #{p.shares}
+  - if p.engagement
+    %td #{p.engagement.round(4)}%
+  - else
+    %td 00%
+  %td
+    %a{href: p.link} Link

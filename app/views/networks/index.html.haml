@@ -1,0 +1,18 @@
+- model_class = Network
+-# .page-header
+-#   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+
+.container 
+  %h4.text-center Select a network to view its Facebook metrics.   
+  %table.table.table-hover.table-bordered.network-index-table
+    %tbody
+      - @networks.each do |net|  
+        - @fans = number_with_delimiter(net.fb_fans, seperator: ',')
+        %tr.col-md-4.col-lg-4
+          %td
+            = link_to network_path(net) do
+              = image_tag net.logo.url
+              .row
+                %h5.pull-left #{net.name}
+                %h6.pull-right Total fans: #{@fans}
+

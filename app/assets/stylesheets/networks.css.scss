@@ -1,0 +1,126 @@
+// Place all the styles related to the Networks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// td {
+// 	border: 1px solid black;
+// text-align: center;
+// vertical-align: middle;
+// }
+
+
+#spinner-box {
+	position: absolute;
+	height: 100% !important;
+	width: 100% !important;
+	margin: 0px !important;
+	background: rgba(245,245,245,.7);
+	top: 0;
+	display: none;
+	opacity: 0;
+	// visibility: hidden;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+
+	i {
+		font-size: 50px;
+		top: 40%;
+		right: 50%;
+		position: absolute;
+
+	}
+}
+
+.show-spin {
+	display: block !important;
+	opacity: 1 !important;
+	visibility: visible !important;
+}
+	
+
+
+
+.network-index-table {
+
+	width: 40% !important;
+	margin: auto 30%;
+	// max-width: 80%;
+	// margin: auto;
+	// padding: auto;
+
+
+	td {
+		a {
+		height: 100%;
+		width: 100%;
+		display: block;
+		
+		
+			padding: auto 10%;
+		
+
+			img {
+				width: 80%;
+				// width: 40%;
+				margin: auto 10%;
+			}
+
+			.row {
+				padding-left: 30px;
+			}
+		}
+	}
+
+	a:hover {
+		background: none;
+		color: black;
+	}		
+
+}
+
+.posts-table {
+	// width: 90%;
+	// margin: auto 5%;
+
+	a {
+		color: blue;
+	}
+}
+
+.metrics-table {
+	text-align: center;
+}
+
+.postsSearch {
+	padding-left: 30px;
+	border: 1px solid black;
+	border-radius: 4px;
+	width: 40%;
+	margin-bottom: 30px;
+	float: right;
+
+	form {
+		padding: 15px;
+	}
+}
+
+// .networks-panels {
+// 	div {
+// 			max-width: 45%;
+// 			display: inline-block;
+		
+// 		.panel-title {
+// 			display: block;
+// 			width: 100%;
+// 		}
+
+// 		.panel-body {
+// 			width: 100%;
+// 			display: block;
+// 		}
+// 	}
+// }
