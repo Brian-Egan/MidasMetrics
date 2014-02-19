@@ -31,7 +31,7 @@
           %a.brand(href="#") Basic Facebook Analytics
           .container.nav-collapse
             %ul.nav
-              - Network.each do |n|
+              - Network.all.each do |n|
               %li 
                 = link_to "#{n.name}", network_path(n.id)
 
