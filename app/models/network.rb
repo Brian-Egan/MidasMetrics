@@ -22,7 +22,7 @@ has_attached_file :logo, :styles => { :large => "640x360>", :medium => "320x180"
 
 		self.posts.each do |p|
 			action_count = (p.likes.to_f + p.comments.to_f + p.shares.to_f)
-			p.engagement = (action_count.to_f/impressions.to_f)
+			p.engagement = (action_count.to_f/impressions.to_f)*100
 			p.save
 		end
 		return false
